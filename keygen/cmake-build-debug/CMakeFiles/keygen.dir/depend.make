@@ -4,6 +4,3 @@
 CMakeFiles/keygen.dir/keygen.cpp.o: ../keygen.cpp
 CMakeFiles/keygen.dir/keygen.cpp.o: ../keygen.h
 
-CMakeFiles/keygen.dir/main.cpp.o: ../keygen.h
-CMakeFiles/keygen.dir/main.cpp.o: ../main.cpp
-
