@@ -19,7 +19,7 @@ std::string keygen::generateKey(unsigned long long timeEpoch, unsigned pwd, bool
     return GenerateUUID(bestPrint);
 }
 
-unsigned long long keygen::pwdProcessor(std::mt19937 &PRNG) {
+unsigned keygen::pwdProcessor(std::mt19937 &PRNG) {
     std::uniform_int_distribution<unsigned> uint_dist_long(0,UINT16_MAX);
     return uint_dist_long(PRNG) & 0xFFFF;
 }

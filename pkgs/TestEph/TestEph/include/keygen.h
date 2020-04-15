@@ -22,7 +22,7 @@ public:
 
 private:
     unsigned long long randomNumGenerater(std::mt19937& PRNG);
-    unsigned long long pwdProcessor(std::mt19937& PRNG);
+    unsigned pwdProcessor(std::mt19937& PRNG);
     std::string GenerateUUID(bool bPrettyPrint=true);
     UUID uuid;
 };
