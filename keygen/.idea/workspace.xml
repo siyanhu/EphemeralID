@@ -24,20 +24,32 @@
   <component name="ProjectId" id="1aUM6blmQEUYpItC8GJoqFAJR31" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
-    <configuration name="keygen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="keygen" TARGET_NAME="keygen" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="keygen" RUN_TARGET_NAME="keygen">
+    <configuration name="keygen" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="keygen" TARGET_NAME="keygen" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="keygen" RUN_TARGET_NAME="keygen">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d3a4706d-717b-4698-8fae-50a6d2f6be68" name="Default Changelist" comment="" />
+      <created>1586953572612</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1586953572612</updated>
+      <workItem from="1586953575911" duration="1917000" />
+    </task>
+    <servers />
   </component>
   <component name="WindowStateProjectService">
     <state x="341" y="221" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586788941554">
@@ -84,16 +96,5 @@
       <screen x="0" y="23" width="1280" height="777" />
     </state>
     <state width="640" height="388" key="XDebugger.FullValuePopup/0.23.1280.777@0.23.1280.777" timestamp="1586786440161" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>11</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

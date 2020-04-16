@@ -9,22 +9,13 @@
 #include <random>
 
 class keygen {
-    struct UUID {
-        unsigned PWD;//16 bits
-        unsigned long long TimeEpoch; //52 bits
-        unsigned long long RandomNumber; //60 bits
-    };
 
 public:
     keygen();
     ~keygen();
-    std::string generateKey(unsigned long long timeEpoch, unsigned pwd, bool bestPrint);
 
-private:
-    unsigned long long randomNumGenerater(std::mt19937& PRNG);
-    unsigned long long pwdProcessor(std::mt19937& PRNG);
-    std::string GenerateUUID(bool bPrettyPrint=true);
-    UUID uuid;
+    std::string refreshEphID(unsigned long long timeEpoch, std::string sk);
+    std::string detectContact(std::string EphIDs[], std::string sk);
 };
 
 
