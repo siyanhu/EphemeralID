@@ -5,3 +5,4 @@ set(CMAKE_CXX_STANDARD 14)
 
 #add_executable(keygen main.cpp)
 add_executable(keygen main.cpp keygen.cpp keygen.h)
+#add_library(keygen keygen.cpp keygen.h)
