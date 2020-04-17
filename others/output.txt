@@ -1,0 +1,24 @@
+"direct": {
+	"sk": "00a78fdc-7f1c-11ea-bc55-0242ac130003",
+	"timestamp": 1587039132
+}
+"indirect": {
+	"dataId": "230dc2daa2b84007b657c61fbf9200ef",
+	"timestamp": 1586777104,
+	"data": {
+		"nearby": {
+			"wlan": {
+				"list":[
+					{"ssid": "VR-ananflow-5G_2", ""bssid":"18d6c7570e6a", "rssi":-52},
+					{"ssid": "", ""bssid":"", "rssi":-80}
+				]
+			},
+			"beacon": {
+				"list":[
+					{"uuid":"b5b182c7-eab1-4988-aa99-b5c1517008a3","major":1,"minor":41616,"rssi":-8},
+					{"uuid":"b5b182c7-eab1-4988-aa99-b5c1517008d9","major":1,"minor":64514,"rssi":-84}
+				]
+			}
+		}
+	}
+}

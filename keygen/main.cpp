@@ -3,11 +3,10 @@
 
 int main(int argc, char *argv[]) {
 
-    std::chrono::nanoseconds ns = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::steady_clock::now().time_since_epoch());
-    unsigned long long timeEpoch = ns.count() & 0xFFFFFFFFFFFFF;
-    unsigned pwd = 3; //16 bit integer
+    unsigned long long timeEpoch = 1587039132; //10
+    std::string sk = "4b3864de-7faa-11ea-bc55-0242ac130003";
     keygen keygenerator;
-    std::string key = keygenerator.generateKey(timeEpoch, pwd, true);
+    std::string key = keygenerator.refreshEphID(timeEpoch, sk);
     std::cout<<key;
     return 0;
 }
