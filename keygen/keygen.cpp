@@ -1,149 +1,145 @@
 //
-// Created by HU Siyan on 13/4/2020.
+// Created by HU Siyan on 17/4/2020.
 //
 
-#include <iomanip>
-#include <sstream>
 #include <iostream>
+#include <sstream>
 #include "keygen.h"
 
 struct UUID {
-    unsigned flag; //2
-    unsigned long long timeEpoch; //8
-    std::string sk; //22
+    std::string FLAG; //2 hex
+    std::string timeEpoch; //8 hex
+    std::string valid_period; //4 hex
+    std::string encrypted_sk; //22 hex
 };
 
-// tools
-int getIndexOfSigns(char ch) {
-    if(ch >= '0' && ch <= '9') {
-        return ch - '0';
-    }
-    if(ch >= 'A' && ch <='F') {
-        return ch - 'A' + 10;
-    }
-    if(ch >= 'a' && ch <= 'f') {
-        return ch - 'a' + 10;
-    }
-    return -1;
+static std::string verify_code = "ce";
+static std::string passbook = "60e447480faf4e7d";
+
+keygen::keygen() {}
+keygen::~keygen() {}
+
+// timestamp Encryption
+unsigned long long decompileUnsignedLL(std::string content) {
+    unsigned long long num;
+    const char *hexchar = content.c_str();
+    num = strtoull(hexchar, NULL, 16);
+    return num;
 }
 
-std::string str2bin(char n) {
-    switch (n) {
-        case '0': return "0000";
-        case '1': return "0001";
-        case '2': return "0010";
-        case '3': return "0011";
-        case '4': return "0100";
-        case '5': return "0101";
-        case '6': return "0110";
-        case '7': return "0111";
-        case '8': return "1000";
-        case '9': return "1001";
-        case 'a': return "1010";
-        case 'A': return "1010";
-        case 'b': return "1011";
-        case 'B': return "1011";
-        case 'c': return "1100";
-        case 'C': return "1100";
-        case 'd': return "1101";
-        case 'D': return "1101";
-        case 'e': return "1110";
-        case 'E': return "1110";
-        case 'f': return "1111";
-        case 'F': return "1111";
-    }
-    return "0000";
+unsigned decompileUnsigned(std::string content) {
+    unsigned num;
+    const char *hexchar = content.c_str();
+    num = strtoull(hexchar, NULL, 16);
+    return num;
 }
 
-char dec2base64(int n) {
-    if (n < 26) {
-        return (n + 'A');
-    } else if (n < 52) {
-        return (n - 26 + 'a');
-    } else if (n < 62) {
-        return (n - 52 + '0');
-    } else if (n == 62) {
-        return '+';
-    }
-    return '/';
-}
-
-int bin2dec(std::string b) {
-    int result = 0;
-    for (size_t i = 0; i < 6; i++) {
-        if(b[i] == '1') {
-            result += (1 << (5-i));
-        }
-    }
-    return result;
-}
-
-
-// Timestamp functions
-std::string compileTimeEpoch(unsigned long long timeEpoch) {
+std::string compileUnsignedLL(unsigned long long content) {
     char buff[100];
-    snprintf(buff, sizeof(buff), "%llx", timeEpoch);
+    snprintf(buff, sizeof(buff), "%llx", content);
     std::string buffAsStdStr = buff;
     return buffAsStdStr;
 }
 
-unsigned long long decompileToTimeEpoch(std::string content) {
-    long sum = 0;
-    long t = 1;
-    int i, len;
-    const char *source = content.c_str();
-    len = strlen(source);
-    for(i=len-1; i>=0; i--) {
-        sum += t * getIndexOfSigns(*(source + i));
-        t *= 16;
+std::string compileUnsigned(unsigned content) {
+    char buff[100];
+    snprintf(buff, sizeof(buff), "%llx", content);
+    std::string buffAsStdStr = buff;
+    return buffAsStdStr;
+}
+
+int generatePeriod () {
+    int v1 = rand() % 10000;
+    return v1;
+}
+
+// SK Generation
+std::string convertToString(char* a, int size) {
+    int i;
+    std::string s = "";
+    for (i = 0; i < size; i++) {
+        s = s + a[i];
     }
-    return sum;
+    return s;
 }
 
-// uuid functions
-std::string compressSK(std::string content) {
-    std::string newSK = content;
-    newSK.erase(std::remove(newSK.begin(), newSK.end(), '-'), newSK.end());
-    std::string bin = "";
-    for (size_t i = 0; i < newSK.size(); i++) {
-        bin += str2bin(newSK[i]);
+std::string ranHex(int length) {
+    char str[length];
+    //hexadecimal characters
+    char hex_characters[]={'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'};
+    int i;
+    for(i=0;i<length;i++) {
+        str[i]=hex_characters[rand()%16];
     }
-    std::string base64;
-    for (size_t i = 0; i < bin.size(); i+=6) {
-        base64 += dec2base64(bin2dec(bin.substr(i,6)));
+    std::string rslt = convertToString(str, length);
+    return rslt;
+}
+
+// sk encryption
+int hex2Integer(char hex) {
+    unsigned int x;
+    std::stringstream ss;
+    ss << std::hex << hex;
+    ss >> x;
+}
+
+std::string encryptionSK(std::string sk) {
+    return sk;
+}
+
+std::string decryptionSK(std::string content) {
+    return content;
+}
+
+// Decompile interface
+unsigned long long compareContact(keygen::KEY EphId, std::string sk) {
+    std::string newEph = EphId.uuid;
+    newEph.erase(std::remove(newEph.begin(), newEph.end(), '-'), newEph.end());
+    if (newEph.size() < 32)
+        return 0;
+
+    std::string masterkey = newEph.substr(10,22);
+    std::string timeEpoch = newEph.substr(2, 8);
+    std::string decrypted_masterKye = decryptionSK(masterkey);
+    if (decrypted_masterKye.compare(sk) == 0) {
+        return decompileUnsignedLL(timeEpoch);
     }
-    return base64;
+    return 0;
 }
 
-std::string decompressToSK(std::string content) {
-//    std::string dec=(base64_decode(content));
-//    std::stringstream ss;
-//
-//    for (int i=0; i<dec.size(); ++i) {
-//        if (i != 0) ss << ':';
-//        ss << std::hex << std::setw(2) << std::setfill('0') << static_cast<unsigned char>(dec[i]);//(int)(dec[i]);
-//    }
-//    std::string res;
-//    res= ss.str();
-//    std::cout<<"the ress is: "<<res<<std::endl;
-return "";
+// Public functions
+std::string keygen::generateSK() {
+    std::string sk = ranHex(22);
+    return sk;
 }
 
-// public apis
-keygen::keygen() {}
-keygen::~keygen() {}
+keygen::KEY keygen::refreshEphID(unsigned long long timeEpoch, std::string sk) {
+    UUID uuid;
+    uuid.FLAG = verify_code;
+    uuid.timeEpoch = compileUnsignedLL(timeEpoch);
+    int period = generatePeriod();
+    uuid.valid_period = compileUnsigned(period);
+    uuid.encrypted_sk = encryptionSK(sk);
 
-std::string keygen::refreshEphID(unsigned long long timeEpoch, std::string sk) {
-    std::string zippedTime = compileTimeEpoch(timeEpoch);
-    unsigned long long testDecompile = decompileToTimeEpoch(zippedTime);
-
-    std::string zippedSK = compressSK(sk);
-
-    std::string newuuid = "hk" + zippedTime + zippedSK;
-    std::string formatuuid = newuuid.insert(8, 1, '-').insert(13, 1, '-').insert(18, 1, '-').insert(23, 1, '-');
-    return newuuid;
+    std::string uuid_str = uuid.FLAG + uuid.timeEpoch + uuid.encrypted_sk;
+    KEY key;
+    key.uuid = uuid_str.insert(8, 1, '-').insert(13, 1, '-').insert(18, 1, '-').insert(23, 1, '-');
+    key.valid_date = timeEpoch + period;
+    return key;
 }
 
-std::string keygen::detectContact(std::string EphIDs[], std::string sk) {
+std::string keygen::detectContact(keygen::KEY EphID_list[], std::string sk) {
+    int size = sizeof(EphID_list);
+    int  i = 0;
+    std::string confirmed[100];
+    for (int i = 0; i < size; i++) {
+        keygen::KEY key = EphID_list[i];
+        unsigned long long date = compareContact(key, sk);
+        if (date != 0) {
+            std::string date_str = std::to_string(date);
+            std::cout<<date_str;
+            return date_str;
+        }
+    }
     return "";
 }

@@ -9,7 +9,7 @@
 		"nearby": {
 			"wlan": {
 				"list":[
-					{"ssid": "VR-ananflow-5G_2", ""bssid":"18d6c7570e6a", "rssi":-52},
+					{"ssid": "VR-ananflow-5G_2", "bssid":"18d6c7570e6a", "rssi":-52},
 					{"ssid": "", ""bssid":"", "rssi":-80}
 				]
 			},
