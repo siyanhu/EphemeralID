@@ -87,6 +87,12 @@
 		<Unit filename="/Users/siyanhu/Documents/forks/EphemeralID/keygen/main.cpp">
 			<Option target="keygen"/>
 		</Unit>
+		<Unit filename="/Users/siyanhu/Documents/forks/EphemeralID/keygen/strcompile.cpp">
+			<Option target="keygen"/>
+		</Unit>
+		<Unit filename="/Users/siyanhu/Documents/forks/EphemeralID/keygen/strcompile.h">
+			<Option target="keygen"/>
+		</Unit>
 		<Unit filename="/Users/siyanhu/Documents/forks/EphemeralID/keygen/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

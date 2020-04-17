@@ -177,6 +177,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/keygen.dir/build.make CMakeFiles/keygen.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+strcompile.o: strcompile.cpp.o
+
+.PHONY : strcompile.o
+
+# target to build an object file
+strcompile.cpp.o:
+	$(MAKE) -f CMakeFiles/keygen.dir/build.make CMakeFiles/keygen.dir/strcompile.cpp.o
+.PHONY : strcompile.cpp.o
+
+strcompile.i: strcompile.cpp.i
+
+.PHONY : strcompile.i
+
+# target to preprocess a source file
+strcompile.cpp.i:
+	$(MAKE) -f CMakeFiles/keygen.dir/build.make CMakeFiles/keygen.dir/strcompile.cpp.i
+.PHONY : strcompile.cpp.i
+
+strcompile.s: strcompile.cpp.s
+
+.PHONY : strcompile.s
+
+# target to generate assembly for a file
+strcompile.cpp.s:
+	$(MAKE) -f CMakeFiles/keygen.dir/build.make CMakeFiles/keygen.dir/strcompile.cpp.s
+.PHONY : strcompile.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +219,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... strcompile.o"
+	@echo "... strcompile.i"
+	@echo "... strcompile.s"
 .PHONY : help
 
 
