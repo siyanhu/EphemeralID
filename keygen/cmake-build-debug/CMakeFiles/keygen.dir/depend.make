@@ -7,3 +7,6 @@ CMakeFiles/keygen.dir/keygen.cpp.o: ../keygen.h
 CMakeFiles/keygen.dir/main.cpp.o: ../keygen.h
 CMakeFiles/keygen.dir/main.cpp.o: ../main.cpp
 
+CMakeFiles/keygen.dir/strcompile.cpp.o: ../strcompile.cpp
+CMakeFiles/keygen.dir/strcompile.cpp.o: ../strcompile.h
+

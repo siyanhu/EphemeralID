@@ -22,7 +22,7 @@ public:
     std::string generateSK();
 
     KEY refreshEphID(unsigned long long timeEpoch, std::string sk);
-    std::string detectContact(KEY EphID_list[], std::string sk);
+    std::string detectContact(std::string EphID_list[], std::string sk);
 };
 
 

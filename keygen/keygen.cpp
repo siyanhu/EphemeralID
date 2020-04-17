@@ -92,8 +92,8 @@ std::string decryptionSK(std::string content) {
 }
 
 // Decompile interface
-unsigned long long compareContact(keygen::KEY EphId, std::string sk) {
-    std::string newEph = EphId.uuid;
+unsigned long long compareContact(std::string EphId, std::string sk) {
+    std::string newEph = EphId;
     newEph.erase(std::remove(newEph.begin(), newEph.end(), '-'), newEph.end());
     if (newEph.size() < 32)
         return 0;
@@ -128,12 +128,12 @@ keygen::KEY keygen::refreshEphID(unsigned long long timeEpoch, std::string sk) {
     return key;
 }
 
-std::string keygen::detectContact(keygen::KEY EphID_list[], std::string sk) {
+std::string keygen::detectContact(std::string EphID_list[], std::string sk) {
     int size = sizeof(EphID_list);
     int  i = 0;
     std::string confirmed[100];
     for (int i = 0; i < size; i++) {
-        keygen::KEY key = EphID_list[i];
+        std::string key = EphID_list[i];
         unsigned long long date = compareContact(key, sk);
         if (date != 0) {
             std::string date_str = std::to_string(date);

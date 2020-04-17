@@ -14,9 +14,9 @@ int main(int argc, char *argv[]) {
     keygen::KEY output1;
     output1 = keygenerator.refreshEphID(timeEpoch1, secret_key1);
 
-    keygen::KEY outputs[2];
-    outputs[0] = output;
-    outputs[1] = output1;
+    std::string outputs[2];
+    outputs[0] = output.uuid;
+    outputs[1] = output1.uuid;
 
     std::string contact_timeslot = keygenerator.detectContact(outputs, secret_key1);
     if (contact_timeslot.size() <= 1) {
