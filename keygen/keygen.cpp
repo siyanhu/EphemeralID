@@ -137,7 +137,8 @@ keygen::KEY keygen::refreshEphID(unsigned long long timeEpoch, std::string sk) {
 
     UUID uuid;
     uuid.FLAG = verify_code;
-    std::string candidateTE = compileUnsignedLL(format_TE);
+    uuid.timeEpoch = compileUnsignedLL(format_TE);
+
     int period = generatePeriod();
     uuid.valid_period = compileUnsigned(period);
     uuid.encrypted_sk = encryptionSK(sk);
