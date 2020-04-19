@@ -4,12 +4,13 @@
 
 #include <iostream>
 #include <sstream>
+#include <math.h>
 #include "keygen.h"
 
 struct UUID {
     std::string FLAG; //2 hex
     std::string timeEpoch; //8 hex
-    std::string valid_period; //4 hex
+    std::string valid_period; //4
     std::string encrypted_sk; //22 hex
 };
 
@@ -47,6 +48,17 @@ std::string compileUnsigned(unsigned content) {
     std::string buffAsStdStr = buff;
     return buffAsStdStr;
 }
+
+int get_length(unsigned long long x) {
+    using namespace std;
+    int leng=0;
+    while(x) {
+        x/=10;
+        leng++;
+    }
+    return leng;
+}
+
 
 int generatePeriod () {
     int v1 = rand() % 10000;
@@ -114,9 +126,18 @@ std::string keygen::generateSK() {
 }
 
 keygen::KEY keygen::refreshEphID(unsigned long long timeEpoch, std::string sk) {
+
+    unsigned long long format_TE = timeEpoch;
+    int te_length = get_length(format_TE);
+    if (te_length > 10) {
+        format_TE = format_TE / pow(10,(te_length - 10));
+    } else if (te_length < 10) {
+        format_TE = format_TE * pow(10,(10 - te_length));
+    }
+
     UUID uuid;
     uuid.FLAG = verify_code;
-    uuid.timeEpoch = compileUnsignedLL(timeEpoch);
+    std::string candidateTE = compileUnsignedLL(format_TE);
     int period = generatePeriod();
     uuid.valid_period = compileUnsigned(period);
     uuid.encrypted_sk = encryptionSK(sk);

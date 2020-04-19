@@ -6,23 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/Users/siyanhu/Documents/forks/EphemeralID/keygen/keygen.cpp
+/Users/husiyan/Documents/Forks/EphemeralID/keygen/keygen.cpp
 iostream
 -
 sstream
 -
+math.h
+-
 keygen.h
-/Users/siyanhu/Documents/forks/EphemeralID/keygen/keygen.h
+/Users/husiyan/Documents/Forks/EphemeralID/keygen/keygen.h
 
-/Users/siyanhu/Documents/forks/EphemeralID/keygen/keygen.h
+/Users/husiyan/Documents/Forks/EphemeralID/keygen/keygen.h
 string
 -
 random
 -
-
-/Users/siyanhu/Documents/forks/EphemeralID/keygen/main.cpp
-iostream
--
-keygen.h
-/Users/siyanhu/Documents/forks/EphemeralID/keygen/keygen.h
 
