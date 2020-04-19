@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/keygen.dir/keygen.cpp.o"
   "CMakeFiles/keygen.dir/main.cpp.o"
+  "CMakeFiles/keygen.dir/strcompile.cpp.o"
   "keygen"
   "keygen.pdb"
 )
