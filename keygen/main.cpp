@@ -15,15 +15,17 @@ int main(int argc, char *argv[]) {
     keygen::KEY output1;
     output1 = keygenerator.refreshEphID(timeEpoch1, secret_key1);
 
-    std::cout<<"\n";
-    std::cout<<output1.uuid;
-    std::cout<<"\n";
+    unsigned long long timeEpoch2 = 1587473473;
+    std::string secret_key2 = secret_key1;
+    keygen::KEY output2;
+    output2 = keygenerator.refreshEphID(timeEpoch2, secret_key2);
 
-    std::string outputs[2];
+    std::string outputs[3];
     outputs[0] = output.uuid;
     outputs[1] = output1.uuid;
+    outputs[2] = output2.uuid;
 
-    std::string contact_timeslot = keygenerator.detectContact(outputs, secret_key1);
+    std::string contact_timeslot = keygenerator.detectContact(outputs, secret_key1, 900); // 15min
     if (contact_timeslot.size() <= 1) {
         std::cout<<"There is a contact happend at " + contact_timeslot;
     }

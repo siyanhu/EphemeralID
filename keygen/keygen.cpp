@@ -150,18 +150,45 @@ keygen::KEY keygen::refreshEphID(unsigned long long timeEpoch, std::string sk) {
     return key;
 }
 
-std::string keygen::detectContact(std::string EphID_list[], std::string sk) {
+std::string keygen::detectContact(std::string EphID_list[], std::string sk, int threshold) {
     int size = sizeof(EphID_list);
     int  i = 0;
     std::string confirmed[100];
+
+    unsigned long long firstMet = 0;
+    unsigned long long lastMet = 0;
+    std::string matched_EphID;
+    bool haveCloseContact = false;
+
     for (int i = 0; i < size; i++) {
         std::string key = EphID_list[i];
         unsigned long long date = compareContact(key, sk);
         if (date != 0) {
+
+            if (firstMet == 0) {
+                firstMet = date;
+                lastMet = date;
+                matched_EphID = key;
+            } else {
+                if (date>lastMet)
+                    lastMet = date;
+            }
+
+            if (lastMet - firstMet > threshold) {
+                haveCloseContact = true;
+                break;
+            }
+        }
+    }
+    if (haveCloseContact) {
+        if (matched_EphID.size() >= 32) {
+            unsigned long long date = compareContact(matched_EphID, sk);
             std::string date_str = std::to_string(date);
+
             std::cout<<date_str;
             return date_str;
         }
     }
+
     return "";
 }
