@@ -5,21 +5,7 @@
 #ifndef KEYGEN_H
 #define KEYGEN_H
 
-#include <string>
-#include <random>
 
-class keygen {
-
-public:
-    struct KEY {
-        std::string uuid;
-        unsigned valid_date; //millisecond timestamp
-    };
-
-    keygen();
-    ~keygen();
-
-};
 
 
 #endif //KEYGEN_H
