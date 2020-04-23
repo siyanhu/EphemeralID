@@ -362,8 +362,7 @@ std::string sha1::generateSK(int num) {
     newKey.RandomContent = generateBasicKey();
     newKey.TotalKeyNum = std::to_string(num);
     std::string newKey_sUUID = newKey.RandomContent + newKey.TotalKeyNum;
-//    return newKey_sUUID;
-    return "719a288e3d8510"; //for testing
+    return newKey_sUUID;
 }
 
 std::set<std::string> sha1::generateEphIDs(std::string secretKey) {

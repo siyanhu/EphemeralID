@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+/Users/siyanhu/Documents/forks/EphemeralID/keygen/keygen.h
+sha1.h
+/Users/siyanhu/Documents/forks/EphemeralID/keygen/sha1.h
+
+/Users/siyanhu/Documents/forks/EphemeralID/keygen/main.cpp
+iostream
+-
+keygen.h
+/Users/siyanhu/Documents/forks/EphemeralID/keygen/keygen.h
+
 /Users/siyanhu/Documents/forks/EphemeralID/keygen/sha1.cpp
 sstream
 -

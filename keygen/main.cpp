@@ -49,9 +49,10 @@ int main(int argc, char *argv[]) {
     keygen generator;
     std::string sk = generator.generateSK(10);
     std::cout<<"Secret Key: " <<sk<<"\n";
-    std::cout<<"Demo Secret Key: "<<"719a288e3d8510"<<"\n";
+    std::string demoKey = "719a288e3d8510";
+    std::cout<<"Demo Secret Key: "<<demoKey<<"\n";
 
-    std::set<std::string> EphIDs = generator.generateEphIDs(sk);
+    std::set<std::string> EphIDs = generator.generateEphIDs(demoKey);
     std::set<std::string>::iterator iter = EphIDs.begin();
     std::cout<<"Ephemeral IDs: " <<"\n";
     while(iter != EphIDs.end()) {
