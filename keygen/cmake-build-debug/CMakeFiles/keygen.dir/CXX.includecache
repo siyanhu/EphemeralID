@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+/Users/siyanhu/Documents/forks/EphemeralID/keygen/keygen.h
+sha1.h
+/Users/siyanhu/Documents/forks/EphemeralID/keygen/sha1.h
+
+/Users/siyanhu/Documents/forks/EphemeralID/keygen/main.cpp
+iostream
+-
+vector
+-
+keygen.h
+/Users/siyanhu/Documents/forks/EphemeralID/keygen/keygen.h
+
 /Users/siyanhu/Documents/forks/EphemeralID/keygen/sha1.cpp
 sstream
 -
@@ -14,6 +26,10 @@ iomanip
 vector
 -
 map
+-
+cmath
+-
+iostream
 -
 sha1.h
 /Users/siyanhu/Documents/forks/EphemeralID/keygen/sha1.h

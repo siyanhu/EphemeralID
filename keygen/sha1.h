@@ -19,7 +19,7 @@ public:
         unsigned long timestamp;
     };
 
-    struct ConfirmedClose {
+    struct close_contact {
         unsigned long timestamp;
         unsigned duration;
     };
@@ -28,7 +28,7 @@ public:
     std::set<std::string> generateEphIDs(std::string secretKey);
     std::string randomPick(std::set<std::string> ephIds);
 
-    std::string detectContact(ContactHistory historyList[], std::string secretkey);
+    std::vector<sha1::close_contact> detectContact(ContactHistory historyList[], std::string secretkey);
 };
 
 

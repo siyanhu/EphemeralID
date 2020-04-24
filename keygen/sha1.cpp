@@ -6,6 +6,8 @@
 #include <iomanip>
 #include <vector>
 #include <map>
+#include<cmath>
+#include <iostream>
 #include "sha1.h"
 
 struct SecretKey {
@@ -282,6 +284,11 @@ std::string generateHash() {
     return result.str();
 }
 
+template <class T>
+int getArrayLen(T& array) {
+    return sizeof(array) / sizeof(array[0]);
+}
+
 //Contact Detection
 std::map<std::string, unsigned long> historymapGenerator(sha1::ContactHistory historyList[]) {
     std::map<std::string, unsigned long> historymap;
@@ -324,19 +331,23 @@ std::map<unsigned long, unsigned> calculateDuration(std::set<unsigned long> time
         if (last == 0) {
             last = now;
         } else {
-            if (now - last > 86400) {
+            if (labs(now - last) > 86400) {
                 if (duration > 900) {
                     closes[last] = duration;
                 }
                 duration = 0;
             }
             else {
-                duration = now - last;
+                duration = labs(now - last);
             }
             last = now;
         }
         ++iter;
     }
+    if (duration < 86400 && duration > 900) {
+        closes[last] = duration;
+    }
+
     return closes;
 }
 
@@ -411,13 +422,13 @@ std::string sha1::randomPick(std::set<std::string> ephIds) {
     return n;
 }
 
-std::string sha1::detectContact(sha1::ContactHistory *historyList, std::string secretkey) {
+std::vector<sha1::close_contact> sha1::detectContact(sha1::ContactHistory *historyList, std::string secretkey) {
     std::set<std::string> candidates = generateEphIDs(secretkey);
     std::map<std::string, unsigned long> historymap = historymapGenerator(historyList);
     std::set<std::string> allEphIDs =  getAllKeysFromMap(historymap);
     std::vector<std::string> intersectedEphIDs = compareEphIDLists(candidates, allEphIDs);
     if (intersectedEphIDs.size() == 0)
-        return "";
+        return {};
     else {
         std::set<unsigned long> timeEpoches;
         int i = 0;
@@ -434,16 +445,20 @@ std::string sha1::detectContact(sha1::ContactHistory *historyList, std::string s
         if (timeEpoches.size()) {
             std::map<unsigned long, unsigned> closes = calculateDuration(timeEpoches);
             if (!closes.size())
-                return "";
-            std::string rslt = "";
+                return {};
+            std::vector<sha1::close_contact> contacts;
             for(std::map<unsigned long, unsigned>::iterator it=closes.begin(); it!=closes.end(); ++it) {
                 unsigned long timestamp = it->first;
                 unsigned duration = it->second;
-                rslt = std::to_string(timestamp)+":"+std::to_string(duration) + ";";
+                close_contact contact;
+                contact.timestamp = timestamp;
+                contact.duration = duration;
+                contacts.push_back(contact);
+//                rslt = rslt + std::to_string(timestamp)+":"+std::to_string(duration) + ";";
             }
-            return rslt;
+            return contacts;
         }
 
     }
-    return "";
+    return {};
 }

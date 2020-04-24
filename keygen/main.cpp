@@ -1,8 +1,9 @@
 #include <iostream>
+#include <vector>
 #include "keygen.h"
 
 sha1::ContactHistory *createDemoHistorys(){
-    sha1::ContactHistory* histories = new sha1::ContactHistory[8];
+    sha1::ContactHistory* histories = new sha1::ContactHistory[11];
     sha1::ContactHistory history0;
     history0.timestamp = 1587081600;
     history0.uuid = "3f61abcc4b29489ab84a759f9713bb2e";
@@ -42,6 +43,21 @@ sha1::ContactHistory *createDemoHistorys(){
     history7.timestamp = 1587613000;
     history7.uuid = "5fce0b80c00732a44e014a9001f60516";
     histories[7] = history7;
+
+    sha1::ContactHistory history8;
+    history8.timestamp = 1587723600;
+    history8.uuid = "3f61abcc4b29489ab84a759f9713bb2e";
+    histories[8] = history8;
+
+    sha1::ContactHistory history9;
+    history9.timestamp = 1587723900;
+    history9.uuid = "3f61abcc4b29489ab84a759f9713bb2e";
+    histories[9] = history9;
+
+    sha1::ContactHistory history10;
+    history10.timestamp = 1587724600;
+    history10.uuid = "3f61abcc4b29489ab84a759f9713bb2e";
+    histories[10] = history10;
     return histories;
 }
 
@@ -52,7 +68,7 @@ int main(int argc, char *argv[]) {
     std::string demoKey = "719a288e3d8510";
     std::cout<<"Demo Secret Key: "<<demoKey<<"\n";
 
-    std::set<std::string> EphIDs = generator.generateEphIDs(sk);
+    std::set<std::string> EphIDs = generator.generateEphIDs(demoKey);
     std::set<std::string>::iterator iter = EphIDs.begin();
     std::cout<<"Ephemeral IDs: " <<"\n";
     while(iter != EphIDs.end()) {
@@ -66,18 +82,25 @@ int main(int argc, char *argv[]) {
     std::cout<<"Broadcast UUIDs: " <<pick_one_for_broadcast<<"\n";
     std::cout<<"\n";
 
-    sha1::ContactHistory *histories = new sha1::ContactHistory[8];
+    int size = 11;
+    sha1::ContactHistory *histories = new sha1::ContactHistory[size];
     histories = createDemoHistorys();
     std::cout<<"Contact List: \n";
-    for (int i = 0; i < sizeof(histories); i++) {
+    for (int i = 0; i < size; i++) {
         sha1::ContactHistory new_contact = histories[i];
-        std::cout<<new_contact.timestamp<<": "<<new_contact.uuid<<"\n";
+        std::cout<<"\t"<<new_contact.timestamp<<": "<<new_contact.uuid<<"\n";
     }
     std::cout<<"\n";
 
-    std::string close_contact = generator.detactContact(histories, sk);
-    std::cout<<"Contact history: " <<close_contact<<"\n";
-    std::cout<<"\/end";
+    std::vector<sha1::close_contact> close_contacts = generator.detactContact(histories, demoKey);
+    if (close_contacts.size()) {
+        std::cout<<"Close Contact: "<<"\n";
+        for(std::vector<sha1::close_contact>::iterator begin = close_contacts.begin();begin!=close_contacts.end();begin++) {
+            std::cout<<"\t"<<(*begin).timestamp<<": "<<(*begin).duration<<"\n";
+        }
+
+        std::cout<<"\/end";
+    }
 
     delete[] histories;
 }
