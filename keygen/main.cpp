@@ -92,7 +92,8 @@ int main(int argc, char *argv[]) {
     }
     std::cout<<"\n";
 
-    std::vector<sha1::close_contact> close_contacts = generator.detactContact(histories, demoKey);
+    int threshold = 900; //900s
+    std::vector<sha1::close_contact> close_contacts = generator.detactContact(histories, demoKey, threshold);
     if (close_contacts.size()) {
         std::cout<<"Close Contact: "<<"\n";
         for(std::vector<sha1::close_contact>::iterator begin = close_contacts.begin();begin!=close_contacts.end();begin++) {

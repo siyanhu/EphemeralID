@@ -41,6 +41,6 @@ std::string keygen::randomPick(std::set<std::string> ephIds) {
     return sha1_generator.randomPick(ephIds);
 }
 
-std::vector<sha1::close_contact> keygen::detactContact(sha1::ContactHistory *historyList, std::string secretkey) {
-    return sha1_generator.detectContact(historyList, secretkey);
+std::vector<sha1::close_contact> keygen::detactContact(sha1::ContactHistory *historyList, std::string secretkey, int threshold) {
+    return sha1_generator.detectContact(historyList, secretkey, threshold);
 }

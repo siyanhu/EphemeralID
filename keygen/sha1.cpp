@@ -318,7 +318,7 @@ std::vector<std::string> compareEphIDLists(std::set<std::string> s1, std::set<st
     return s_both;
 }
 
-std::map<unsigned long, unsigned> calculateDuration(std::set<unsigned long> timeEpoches) {
+std::map<unsigned long, unsigned> calculateDuration(std::set<unsigned long> timeEpoches, int threshold) {
     std::set<unsigned long>::iterator iter = timeEpoches.begin();
     int i = 0;
     unsigned long now = 0, last = 0;
@@ -332,7 +332,7 @@ std::map<unsigned long, unsigned> calculateDuration(std::set<unsigned long> time
             last = now;
         } else {
             if (labs(now - last) > 86400) {
-                if (duration > 900) {
+                if (duration > threshold) {
                     closes[last] = duration;
                 }
                 duration = 0;
@@ -344,7 +344,7 @@ std::map<unsigned long, unsigned> calculateDuration(std::set<unsigned long> time
         }
         ++iter;
     }
-    if (duration < 86400 && duration > 900) {
+    if (duration < 86400 && duration > threshold) {
         closes[last] = duration;
     }
 
@@ -422,7 +422,7 @@ std::string sha1::randomPick(std::set<std::string> ephIds) {
     return n;
 }
 
-std::vector<sha1::close_contact> sha1::detectContact(sha1::ContactHistory *historyList, std::string secretkey) {
+std::vector<sha1::close_contact> sha1::detectContact(sha1::ContactHistory *historyList, std::string secretkey, int threshold) {
     std::set<std::string> candidates = generateEphIDs(secretkey);
     std::map<std::string, unsigned long> historymap = historymapGenerator(historyList);
     std::set<std::string> allEphIDs =  getAllKeysFromMap(historymap);
@@ -443,7 +443,7 @@ std::vector<sha1::close_contact> sha1::detectContact(sha1::ContactHistory *histo
             timeEpoches.insert(history.timestamp);
         }
         if (timeEpoches.size()) {
-            std::map<unsigned long, unsigned> closes = calculateDuration(timeEpoches);
+            std::map<unsigned long, unsigned> closes = calculateDuration(timeEpoches, threshold);
             if (!closes.size())
                 return {};
             std::vector<sha1::close_contact> contacts;
