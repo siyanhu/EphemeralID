@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
     std::string demoKey = "719a288e3d8510";
     std::cout<<"Demo Secret Key: "<<demoKey<<"\n";
 
-    std::set<std::string> EphIDs = generator.generateEphIDs(demoKey);
+    std::set<std::string> EphIDs = generator.generateEphIDs(sk);
     std::set<std::string>::iterator iter = EphIDs.begin();
     std::cout<<"Ephemeral IDs: " <<"\n";
     while(iter != EphIDs.end()) {

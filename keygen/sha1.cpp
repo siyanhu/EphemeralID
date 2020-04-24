@@ -36,6 +36,7 @@ std::string ranHex(int length) {
     //hexadecimal characters
     char hex_characters[]={'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'};
     int i;
+    srand((unsigned)time(NULL));
     for(i=0;i<length;i++) {
         str[i]=hex_characters[rand()%16];
     }
