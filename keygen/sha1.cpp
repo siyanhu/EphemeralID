@@ -390,9 +390,11 @@ std::set<std::string> sha1::generateEphIDs(std::string secretKey) {
 }
 
 std::string sha1::randomPick(std::set<std::string> ephIds) {
+
     int min = 0;
     int max = ephIds.size() - 1;
-    int index = min + (rand() % static_cast<int>(max - min + 1));
+    srand((unsigned)time(NULL));
+    int index = min + (rand() % (max - min + 1)); //(rand() % (b-a+1))+ a
 
     std::set<std::string>::iterator iter = ephIds.begin();
     int i = 0;
