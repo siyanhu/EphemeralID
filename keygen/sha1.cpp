@@ -422,7 +422,7 @@ std::string sha1::randomPick(std::set<std::string> ephIds) {
     return n;
 }
 
-std::vector<sha1::close_contact> sha1::detectContact(sha1::ContactHistory *historyList, std::string secretkey, int threshold) {
+std::vector<sha1::close_contact> sha1::detectContact(sha1::ContactHistory *historyList, int historyCount, std::string secretkey, int threshold) {
     std::set<std::string> candidates = generateEphIDs(secretkey);
     std::map<std::string, unsigned long> historymap = historymapGenerator(historyList);
     std::set<std::string> allEphIDs =  getAllKeysFromMap(historymap);
@@ -432,8 +432,7 @@ std::vector<sha1::close_contact> sha1::detectContact(sha1::ContactHistory *histo
     else {
         std::set<unsigned long> timeEpoches;
         int i = 0;
-        int siize = sizeof(historyList);
-        for(int i = 0; i < sizeof(historyList); i++) {
+        for(int i = 0; i < historyCount; i++) {
             ContactHistory history = historyList[i];
 
             std::vector<std::string>::iterator iter;

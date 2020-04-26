@@ -16,7 +16,7 @@ public:
     std::set<std::string> generateEphIDs(std::string secretKey);
     std::string randomPick(std::set<std::string> ephIds);
 
-    std::vector<sha1::close_contact> detactContact(sha1::ContactHistory historyList[], std::string secretkey, int threshold);
+    std::vector<sha1::close_contact> detectContact(sha1::ContactHistory *historyList, int historyCount, std::string secretkey, int threshold);
 
 private:
     sha1 sha1_generator;
