@@ -290,9 +290,9 @@ int getArrayLen(T& array) {
 }
 
 //Contact Detection
-std::map<std::string, unsigned long> historymapGenerator(sha1::ContactHistory historyList[]) {
+std::map<std::string, unsigned long> historymapGenerator(sha1::ContactHistory historyList[], int threshold) {
     std::map<std::string, unsigned long> historymap;
-    for (int i = 0; i < sizeof(historyList); i++) {
+    for (int i = 0; i < threshold; i++) {
         sha1::ContactHistory history = historyList[i];
         historymap[history.uuid] = history.timestamp;
     }
@@ -424,7 +424,7 @@ std::string sha1::randomPick(std::set<std::string> ephIds) {
 
 std::vector<sha1::close_contact> sha1::detectContact(sha1::ContactHistory *historyList, int historyCount, std::string secretkey, int threshold) {
     std::set<std::string> candidates = generateEphIDs(secretkey);
-    std::map<std::string, unsigned long> historymap = historymapGenerator(historyList);
+    std::map<std::string, unsigned long> historymap = historymapGenerator(historyList, threshold);
     std::set<std::string> allEphIDs =  getAllKeysFromMap(historymap);
     std::vector<std::string> intersectedEphIDs = compareEphIDLists(candidates, allEphIDs);
     if (intersectedEphIDs.size() == 0)
