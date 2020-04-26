@@ -328,9 +328,13 @@ std::map<unsigned long, unsigned> calculateDuration(std::set<unsigned long> time
         if (i >= timeEpoches.size())
             break;
         now = *iter;
+        std::cout<<"Calculating: "<<now<<"\n";
         if (last == 0) {
             last = now;
         } else {
+            if (now - last < 0) {
+                std::cout<<" ";
+            }
             if (labs(now - last) > 86400) {
                 if (duration > threshold) {
                     closes[last] = duration;
@@ -338,7 +342,7 @@ std::map<unsigned long, unsigned> calculateDuration(std::set<unsigned long> time
                 duration = 0;
             }
             else {
-                duration = labs(now - last);
+                duration = duration + labs(now - last);
             }
             last = now;
         }
@@ -424,7 +428,7 @@ std::string sha1::randomPick(std::set<std::string> ephIds) {
 
 std::vector<sha1::close_contact> sha1::detectContact(sha1::ContactHistory *historyList, int historyCount, std::string secretkey, int threshold) {
     std::set<std::string> candidates = generateEphIDs(secretkey);
-    std::map<std::string, unsigned long> historymap = historymapGenerator(historyList, threshold);
+    std::map<std::string, unsigned long> historymap = historymapGenerator(historyList, historyCount);
     std::set<std::string> allEphIDs =  getAllKeysFromMap(historymap);
     std::vector<std::string> intersectedEphIDs = compareEphIDLists(candidates, allEphIDs);
     if (intersectedEphIDs.size() == 0)
@@ -438,8 +442,9 @@ std::vector<sha1::close_contact> sha1::detectContact(sha1::ContactHistory *histo
             std::vector<std::string>::iterator iter;
             iter = find(intersectedEphIDs.begin(), intersectedEphIDs.end(), history.uuid);
             const bool is_in = (iter != intersectedEphIDs.end());
-
-            timeEpoches.insert(history.timestamp);
+            if (is_in) {
+                timeEpoches.insert(history.timestamp);
+            }
         }
         if (timeEpoches.size()) {
             std::map<unsigned long, unsigned> closes = calculateDuration(timeEpoches, threshold);
