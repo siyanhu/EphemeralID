@@ -63,9 +63,9 @@ sha1::ContactHistory *createDemoHistorys(){
 
 int main(int argc, char *argv[]) {
     keygen generator;
-    std::string sk = generator.generateSK(2);
+    std::string sk = generator.generateSK(99); // 1 - 99
     std::cout<<"Secret Key: " <<sk<<"\n";
-    std::string demoKey = "719a288e3d8510";
+    std::string demoKey = "719a288e3d8502";
     std::cout<<"Demo Secret Key: "<<demoKey<<"\n";
 
     std::set<std::string> EphIDs = generator.generateEphIDs(sk);
@@ -88,12 +88,12 @@ int main(int argc, char *argv[]) {
     std::cout<<"Contact List: \n";
     for (int i = 0; i < size; i++) {
         sha1::ContactHistory new_contact = histories[i];
-        //std::cout<<"\t"<<new_contact.timestamp<<": "<<new_contact.uuid<<"\n";
+        std::cout<<"\t"<<new_contact.timestamp<<": "<<new_contact.uuid<<"\n";
     }
     std::cout<<"\n";
 
     int threshold = 900; //900s
-    std::vector<sha1::close_contact> close_contacts = generator.detectContact(histories, size, sk, threshold);
+    std::vector<sha1::close_contact> close_contacts = generator.detectContact(histories, size, demoKey, threshold);
     if (close_contacts.size()) {
         std::cout<<"Close Contact: "<<"\n";
         for(std::vector<sha1::close_contact>::iterator begin = close_contacts.begin();begin!=close_contacts.end();begin++) {
