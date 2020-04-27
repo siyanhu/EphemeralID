@@ -47,7 +47,11 @@ std::string ranHex(int length) {
 }
 
 std::string generateBasicKey() {
-    std::string basic_content = ranHex(12);
+    int min = 12;
+    int max = 28;
+    srand((unsigned)time(NULL));
+    int length = min + (rand() % (max - min + 1));
+    std::string basic_content = ranHex(length);
     return basic_content;
 }
 
@@ -364,6 +368,9 @@ auto select_random(const S &s, size_t n) {
     return it;
 }
 
+//Invalid Checking
+
+
 //Public Functions
 sha1::sha1() {
     reset(digest, buffer, transforms);
@@ -377,6 +384,10 @@ std::string sha1::generateSK(int num) {
     SecretKey newKey;
     newKey.RandomContent = generateBasicKey();
     newKey.TotalKeyNum = std::to_string(num);
+    if (newKey.TotalKeyNum.length() == 1) {
+        newKey.TotalKeyNum = "0" + newKey.TotalKeyNum;
+    }
+
     std::string newKey_sUUID = newKey.RandomContent + newKey.TotalKeyNum;
     return newKey_sUUID;
 }
@@ -384,8 +395,8 @@ std::string sha1::generateSK(int num) {
 std::set<std::string> sha1::generateEphIDs(std::string secretKey) {
     if (secretKey.length() < 13)
         return {};
-    std::string sk = secretKey.substr(0, 12);
-    std::string totalNum_str = secretKey.substr(12,secretKey.size() - 12);
+    std::string sk = secretKey.substr(0, secretKey.size() - 2);
+    std::string totalNum_str = secretKey.substr(secretKey.size() - 2,2);
 
     int totalNum = std::stoi(totalNum_str);
     int i = 0;
