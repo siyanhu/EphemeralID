@@ -43,10 +43,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/husiyan/Documents/Forks/EphemeralID/keygen
+CMAKE_SOURCE_DIR = /Users/siyanhu/Documents/forks/EphemeralID/keygen
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/husiyan/Documents/Forks/EphemeralID/keygen/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/siyanhu/Documents/forks/EphemeralID/keygen/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/keygen.dir/depend.make
@@ -59,62 +59,76 @@ include CMakeFiles/keygen.dir/flags.make
 
 CMakeFiles/keygen.dir/main.cpp.o: CMakeFiles/keygen.dir/flags.make
 CMakeFiles/keygen.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/husiyan/Documents/Forks/EphemeralID/keygen/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/keygen.dir/main.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/keygen.dir/main.cpp.o -c /Users/husiyan/Documents/Forks/EphemeralID/keygen/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/siyanhu/Documents/forks/EphemeralID/keygen/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/keygen.dir/main.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/keygen.dir/main.cpp.o -c /Users/siyanhu/Documents/forks/EphemeralID/keygen/main.cpp
 
 CMakeFiles/keygen.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/keygen.dir/main.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/husiyan/Documents/Forks/EphemeralID/keygen/main.cpp > CMakeFiles/keygen.dir/main.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/siyanhu/Documents/forks/EphemeralID/keygen/main.cpp > CMakeFiles/keygen.dir/main.cpp.i
 
 CMakeFiles/keygen.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/keygen.dir/main.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/husiyan/Documents/Forks/EphemeralID/keygen/main.cpp -o CMakeFiles/keygen.dir/main.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/siyanhu/Documents/forks/EphemeralID/keygen/main.cpp -o CMakeFiles/keygen.dir/main.cpp.s
 
 CMakeFiles/keygen.dir/keygen.cpp.o: CMakeFiles/keygen.dir/flags.make
 CMakeFiles/keygen.dir/keygen.cpp.o: ../keygen.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/husiyan/Documents/Forks/EphemeralID/keygen/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/keygen.dir/keygen.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/keygen.dir/keygen.cpp.o -c /Users/husiyan/Documents/Forks/EphemeralID/keygen/keygen.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/siyanhu/Documents/forks/EphemeralID/keygen/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/keygen.dir/keygen.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/keygen.dir/keygen.cpp.o -c /Users/siyanhu/Documents/forks/EphemeralID/keygen/keygen.cpp
 
 CMakeFiles/keygen.dir/keygen.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/keygen.dir/keygen.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/husiyan/Documents/Forks/EphemeralID/keygen/keygen.cpp > CMakeFiles/keygen.dir/keygen.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/siyanhu/Documents/forks/EphemeralID/keygen/keygen.cpp > CMakeFiles/keygen.dir/keygen.cpp.i
 
 CMakeFiles/keygen.dir/keygen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/keygen.dir/keygen.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/husiyan/Documents/Forks/EphemeralID/keygen/keygen.cpp -o CMakeFiles/keygen.dir/keygen.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/siyanhu/Documents/forks/EphemeralID/keygen/keygen.cpp -o CMakeFiles/keygen.dir/keygen.cpp.s
 
 CMakeFiles/keygen.dir/strcompile.cpp.o: CMakeFiles/keygen.dir/flags.make
 CMakeFiles/keygen.dir/strcompile.cpp.o: ../strcompile.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/husiyan/Documents/Forks/EphemeralID/keygen/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/keygen.dir/strcompile.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/keygen.dir/strcompile.cpp.o -c /Users/husiyan/Documents/Forks/EphemeralID/keygen/strcompile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/siyanhu/Documents/forks/EphemeralID/keygen/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/keygen.dir/strcompile.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/keygen.dir/strcompile.cpp.o -c /Users/siyanhu/Documents/forks/EphemeralID/keygen/strcompile.cpp
 
 CMakeFiles/keygen.dir/strcompile.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/keygen.dir/strcompile.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/husiyan/Documents/Forks/EphemeralID/keygen/strcompile.cpp > CMakeFiles/keygen.dir/strcompile.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/siyanhu/Documents/forks/EphemeralID/keygen/strcompile.cpp > CMakeFiles/keygen.dir/strcompile.cpp.i
 
 CMakeFiles/keygen.dir/strcompile.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/keygen.dir/strcompile.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/husiyan/Documents/Forks/EphemeralID/keygen/strcompile.cpp -o CMakeFiles/keygen.dir/strcompile.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/siyanhu/Documents/forks/EphemeralID/keygen/strcompile.cpp -o CMakeFiles/keygen.dir/strcompile.cpp.s
 
 CMakeFiles/keygen.dir/md5.cpp.o: CMakeFiles/keygen.dir/flags.make
 CMakeFiles/keygen.dir/md5.cpp.o: ../md5.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/husiyan/Documents/Forks/EphemeralID/keygen/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/keygen.dir/md5.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/keygen.dir/md5.cpp.o -c /Users/husiyan/Documents/Forks/EphemeralID/keygen/md5.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/siyanhu/Documents/forks/EphemeralID/keygen/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/keygen.dir/md5.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/keygen.dir/md5.cpp.o -c /Users/siyanhu/Documents/forks/EphemeralID/keygen/md5.cpp
 
 CMakeFiles/keygen.dir/md5.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/keygen.dir/md5.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/husiyan/Documents/Forks/EphemeralID/keygen/md5.cpp > CMakeFiles/keygen.dir/md5.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/siyanhu/Documents/forks/EphemeralID/keygen/md5.cpp > CMakeFiles/keygen.dir/md5.cpp.i
 
 CMakeFiles/keygen.dir/md5.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/keygen.dir/md5.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/husiyan/Documents/Forks/EphemeralID/keygen/md5.cpp -o CMakeFiles/keygen.dir/md5.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/siyanhu/Documents/forks/EphemeralID/keygen/md5.cpp -o CMakeFiles/keygen.dir/md5.cpp.s
+
+CMakeFiles/keygen.dir/sha1.cpp.o: CMakeFiles/keygen.dir/flags.make
+CMakeFiles/keygen.dir/sha1.cpp.o: ../sha1.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/siyanhu/Documents/forks/EphemeralID/keygen/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/keygen.dir/sha1.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/keygen.dir/sha1.cpp.o -c /Users/siyanhu/Documents/forks/EphemeralID/keygen/sha1.cpp
+
+CMakeFiles/keygen.dir/sha1.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/keygen.dir/sha1.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/siyanhu/Documents/forks/EphemeralID/keygen/sha1.cpp > CMakeFiles/keygen.dir/sha1.cpp.i
+
+CMakeFiles/keygen.dir/sha1.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/keygen.dir/sha1.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/siyanhu/Documents/forks/EphemeralID/keygen/sha1.cpp -o CMakeFiles/keygen.dir/sha1.cpp.s
 
 # Object files for target keygen
 keygen_OBJECTS = \
 "CMakeFiles/keygen.dir/main.cpp.o" \
 "CMakeFiles/keygen.dir/keygen.cpp.o" \
 "CMakeFiles/keygen.dir/strcompile.cpp.o" \
-"CMakeFiles/keygen.dir/md5.cpp.o"
+"CMakeFiles/keygen.dir/md5.cpp.o" \
+"CMakeFiles/keygen.dir/sha1.cpp.o"
 
 # External object files for target keygen
 keygen_EXTERNAL_OBJECTS =
@@ -123,9 +137,10 @@ keygen: CMakeFiles/keygen.dir/main.cpp.o
 keygen: CMakeFiles/keygen.dir/keygen.cpp.o
 keygen: CMakeFiles/keygen.dir/strcompile.cpp.o
 keygen: CMakeFiles/keygen.dir/md5.cpp.o
+keygen: CMakeFiles/keygen.dir/sha1.cpp.o
 keygen: CMakeFiles/keygen.dir/build.make
 keygen: CMakeFiles/keygen.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/husiyan/Documents/Forks/EphemeralID/keygen/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable keygen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/siyanhu/Documents/forks/EphemeralID/keygen/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable keygen"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/keygen.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -138,6 +153,6 @@ CMakeFiles/keygen.dir/clean:
 .PHONY : CMakeFiles/keygen.dir/clean
 
 CMakeFiles/keygen.dir/depend:
-	cd /Users/husiyan/Documents/Forks/EphemeralID/keygen/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/husiyan/Documents/Forks/EphemeralID/keygen /Users/husiyan/Documents/Forks/EphemeralID/keygen /Users/husiyan/Documents/Forks/EphemeralID/keygen/cmake-build-debug /Users/husiyan/Documents/Forks/EphemeralID/keygen/cmake-build-debug /Users/husiyan/Documents/Forks/EphemeralID/keygen/cmake-build-debug/CMakeFiles/keygen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/siyanhu/Documents/forks/EphemeralID/keygen/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/siyanhu/Documents/forks/EphemeralID/keygen /Users/siyanhu/Documents/forks/EphemeralID/keygen /Users/siyanhu/Documents/forks/EphemeralID/keygen/cmake-build-debug /Users/siyanhu/Documents/forks/EphemeralID/keygen/cmake-build-debug /Users/siyanhu/Documents/forks/EphemeralID/keygen/cmake-build-debug/CMakeFiles/keygen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/keygen.dir/depend
 

@@ -13,24 +13,6 @@
 typedef unsigned char byte;
 
 class md5 {
-
-    struct ContactHistory {
-        std::string uuid;
-        unsigned long long timestamp;
-    };
-
-
-    md5();
-    ~md5();
-
-public:
-    std::string generateSK(unsigned long long timestamp);
-    std::list<std::string> md5EphID(std::string sk);
-
-private:
-    bit32 state[4];
-    static const byte PADDING[64];
-    static const char HEX_NUMBERS[16];
 };
 
 
