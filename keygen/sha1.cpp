@@ -294,13 +294,22 @@ int getArrayLen(T& array) {
 }
 
 //Contact Detection
-std::map<std::string, unsigned long> historymapGenerator(sha1::ContactHistory historyList[], int threshold) {
+std::map<std::string, unsigned long> historymapGenerator(sha1::ContactHistory historyList[], int historyCount) {
     std::map<std::string, unsigned long> historymap;
-    for (int i = 0; i < threshold; i++) {
+    for (int i = 0; i < historyCount; i++) {
         sha1::ContactHistory history = historyList[i];
         historymap[history.uuid] = history.timestamp;
     }
     return historymap;
+}
+
+std::map<unsigned long, int> signalmapGenerator(sha1::ContactHistory historyList[], int historyCount) {
+    std::map<unsigned long, int> signalmap;
+    for (int i = 0; i < historyCount; i++){
+        sha1::ContactHistory history = historyList[i];
+        signalmap[history.timestamp] = history.rssi;
+    }
+    return signalmap;
 }
 
 std::set<std::string> getAllKeysFromMap(std::map<std::string, unsigned long> mymap) {
@@ -357,6 +366,50 @@ std::map<unsigned long, unsigned> calculateDuration(std::set<unsigned long> time
     }
 
     return closes;
+}
+
+std::string signalLevel2String(sha1::SignalLevel sgl) {
+    switch(sgl) {
+        case sha1::Near:
+            return "near";
+            break;
+        case sha1::Medium:
+            return "medium";
+            break;
+        case sha1::Distant:
+            return "distant";
+            break;
+        default:
+            return "unknonw";
+            break;
+    }
+    return "unknown";
+}
+
+sha1::SignalLevel string2SignalLevel(std::string str) {
+    if (str.compare("near"))
+        return sha1::Near;
+    if (str.compare("medium"))
+        return sha1::Medium;
+    if (str.compare("distant"))
+        return sha1::Distant;
+    return sha1::Unknown;
+}
+
+sha1::SignalLevel rssi2SignalLevel(int rssi) {
+    int real_rssi = 0;
+    if (rssi < 0) {
+        real_rssi = abs(rssi);
+    } else {
+        real_rssi = rssi;
+    }
+    if (real_rssi < 50)
+        return sha1::Near;
+    if (real_rssi < 60)
+        return sha1::Medium;
+    if (real_rssi < 70)
+        return sha1::Distant;
+    return sha1::Unknown;
 }
 
 //Random pick
@@ -440,6 +493,7 @@ std::string sha1::randomPick(std::set<std::string> ephIds) {
 std::vector<sha1::close_contact> sha1::detectContact(sha1::ContactHistory *historyList, int historyCount, std::string secretkey, int threshold) {
     std::set<std::string> candidates = generateEphIDs(secretkey);
     std::map<std::string, unsigned long> historymap = historymapGenerator(historyList, historyCount);
+    std::map<unsigned long, int> signalmap = signalmapGenerator(historyList, historyCount);
     std::set<std::string> allEphIDs =  getAllKeysFromMap(historymap);
     std::vector<std::string> intersectedEphIDs = compareEphIDLists(candidates, allEphIDs);
     if (intersectedEphIDs.size() == 0)
@@ -456,6 +510,7 @@ std::vector<sha1::close_contact> sha1::detectContact(sha1::ContactHistory *histo
             if (is_in) {
                 timeEpoches.insert(history.timestamp);
             }
+            sha1::SignalLevel signalLevel = rssi2SignalLevel(history.rssi);
         }
         if (timeEpoches.size()) {
             std::map<unsigned long, unsigned> closes = calculateDuration(timeEpoches, threshold);
@@ -468,9 +523,20 @@ std::vector<sha1::close_contact> sha1::detectContact(sha1::ContactHistory *histo
                 close_contact contact;
                 contact.timestamp = timestamp;
                 contact.duration = duration;
+                if (!signalmap.size()) {
+                    contact.proximity = sha1::Unknown;
+                } else {
+                    int rssi = 0;
+                    rssi = signalmap[contact.timestamp];
+                    sha1::SignalLevel level = sha1::Unknown;
+                    if (rssi != 0)
+                        level = rssi2SignalLevel(rssi);
+                    contact.proximity = signalLevel2String(level);
+                }
                 contacts.push_back(contact);
 //                rslt = rslt + std::to_string(timestamp)+":"+std::to_string(duration) + ";";
             }
+
             return contacts;
         }
 
