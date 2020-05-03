@@ -70,13 +70,15 @@ sha1::ContactHistory *createDemoHistorys(){
 }
 
 int main(int argc, char *argv[]) {
+
     keygen generator;
-    std::string sk = generator.generateSK(99); // 1 - 99
+
+    std::string sk = generator.generateSK(10); // 1 - 99
     std::cout<<"Secret Key: " <<sk<<"\n";
     std::string demoKey = "719a288e3d8550";
     std::cout<<"Demo Secret Key: "<<demoKey<<"\n";
 
-    std::set<std::string> EphIDs = generator.generateEphIDs(demoKey);
+    std::set<std::string> EphIDs = generator.generateEphIDs(sk);
     std::set<std::string>::iterator iter = EphIDs.begin();
     std::cout<<"Ephemeral IDs: " <<"\n";
     while(iter != EphIDs.end()) {

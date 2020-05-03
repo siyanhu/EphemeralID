@@ -6,8 +6,8 @@
 #include <iomanip>
 #include <vector>
 #include <map>
-#include<cmath>
 #include <iostream>
+#include <random>
 #include "sha1.h"
 
 struct SecretKey {
@@ -24,6 +24,13 @@ uint64_t transforms;
 
 //Private Functions
 //Prepare for Secret Key Generation
+int generateRandomSeed () {
+    std::random_device rd;
+    std::default_random_engine gen = std::default_random_engine(rd());
+    std::uniform_int_distribution<int> dis(1,70000000000000);
+    return dis(gen);
+}
+
 std::string convertToString(char* a, int size) {
     int i;
     std::string s = "";
@@ -38,7 +45,7 @@ std::string ranHex(int length) {
     //hexadecimal characters
     char hex_characters[]={'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'};
     int i;
-    srand((unsigned)time(NULL));
+    srand(generateRandomSeed());
     for(i=0;i<length;i++) {
         str[i]=hex_characters[rand()%16];
     }
@@ -49,7 +56,7 @@ std::string ranHex(int length) {
 std::string generateBasicKey() {
     int min = 12;
     int max = 28;
-    srand((unsigned)time(NULL));
+    srand(generateRandomSeed());
     int length = min + (rand() % (max - min + 1));
     std::string basic_content = ranHex(length);
     return basic_content;
@@ -473,7 +480,7 @@ std::string sha1::randomPick(std::set<std::string> ephIds) {
 
     int min = 0;
     int max = ephIds.size() - 1;
-    srand((unsigned)time(NULL));
+    srand(generateRandomSeed());
     int index = min + (rand() % (max - min + 1)); //(rand() % (b-a+1))+ a
 
     std::set<std::string>::iterator iter = ephIds.begin();

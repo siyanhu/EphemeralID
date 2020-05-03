@@ -87,22 +87,10 @@
 		<Unit filename="/Users/husiyan/Documents/Forks/EphemeralID/keygen/main.cpp">
 			<Option target="keygen"/>
 		</Unit>
-		<Unit filename="/Users/husiyan/Documents/Forks/EphemeralID/keygen/md5.cpp">
-			<Option target="keygen"/>
-		</Unit>
-		<Unit filename="/Users/husiyan/Documents/Forks/EphemeralID/keygen/md5.h">
-			<Option target="keygen"/>
-		</Unit>
 		<Unit filename="/Users/husiyan/Documents/Forks/EphemeralID/keygen/sha1.cpp">
 			<Option target="keygen"/>
 		</Unit>
 		<Unit filename="/Users/husiyan/Documents/Forks/EphemeralID/keygen/sha1.h">
-			<Option target="keygen"/>
-		</Unit>
-		<Unit filename="/Users/husiyan/Documents/Forks/EphemeralID/keygen/strcompile.cpp">
-			<Option target="keygen"/>
-		</Unit>
-		<Unit filename="/Users/husiyan/Documents/Forks/EphemeralID/keygen/strcompile.h">
 			<Option target="keygen"/>
 		</Unit>
 		<Unit filename="/Users/husiyan/Documents/Forks/EphemeralID/keygen/CMakeLists.txt">

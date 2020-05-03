@@ -177,33 +177,6 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/keygen.dir/build.make CMakeFiles/keygen.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-md5.o: md5.cpp.o
-
-.PHONY : md5.o
-
-# target to build an object file
-md5.cpp.o:
-	$(MAKE) -f CMakeFiles/keygen.dir/build.make CMakeFiles/keygen.dir/md5.cpp.o
-.PHONY : md5.cpp.o
-
-md5.i: md5.cpp.i
-
-.PHONY : md5.i
-
-# target to preprocess a source file
-md5.cpp.i:
-	$(MAKE) -f CMakeFiles/keygen.dir/build.make CMakeFiles/keygen.dir/md5.cpp.i
-.PHONY : md5.cpp.i
-
-md5.s: md5.cpp.s
-
-.PHONY : md5.s
-
-# target to generate assembly for a file
-md5.cpp.s:
-	$(MAKE) -f CMakeFiles/keygen.dir/build.make CMakeFiles/keygen.dir/md5.cpp.s
-.PHONY : md5.cpp.s
-
 sha1.o: sha1.cpp.o
 
 .PHONY : sha1.o
@@ -231,33 +204,6 @@ sha1.cpp.s:
 	$(MAKE) -f CMakeFiles/keygen.dir/build.make CMakeFiles/keygen.dir/sha1.cpp.s
 .PHONY : sha1.cpp.s
 
-strcompile.o: strcompile.cpp.o
-
-.PHONY : strcompile.o
-
-# target to build an object file
-strcompile.cpp.o:
-	$(MAKE) -f CMakeFiles/keygen.dir/build.make CMakeFiles/keygen.dir/strcompile.cpp.o
-.PHONY : strcompile.cpp.o
-
-strcompile.i: strcompile.cpp.i
-
-.PHONY : strcompile.i
-
-# target to preprocess a source file
-strcompile.cpp.i:
-	$(MAKE) -f CMakeFiles/keygen.dir/build.make CMakeFiles/keygen.dir/strcompile.cpp.i
-.PHONY : strcompile.cpp.i
-
-strcompile.s: strcompile.cpp.s
-
-.PHONY : strcompile.s
-
-# target to generate assembly for a file
-strcompile.cpp.s:
-	$(MAKE) -f CMakeFiles/keygen.dir/build.make CMakeFiles/keygen.dir/strcompile.cpp.s
-.PHONY : strcompile.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -273,15 +219,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... md5.o"
-	@echo "... md5.i"
-	@echo "... md5.s"
 	@echo "... sha1.o"
 	@echo "... sha1.i"
 	@echo "... sha1.s"
-	@echo "... strcompile.o"
-	@echo "... strcompile.i"
-	@echo "... strcompile.s"
 .PHONY : help
 
 
