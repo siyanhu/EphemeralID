@@ -72,7 +72,6 @@ sha1::ContactHistory *createDemoHistorys(){
 int main(int argc, char *argv[]) {
 
     keygen generator;
-
     std::string sk = generator.generateSK(10); // 1 - 99
     std::cout<<"Secret Key: " <<sk<<"\n";
     std::string demoKey = "719a288e3d8550";
@@ -103,7 +102,7 @@ int main(int argc, char *argv[]) {
     std::cout<<"\n";
 
     int threshold = 900; //900s
-    std::vector<sha1::close_contact> close_contacts = generator.detectContact(histories, size, demoKey, threshold);
+    std::vector<sha1::close_contact> close_contacts = generator.detectContact(histories, size, sk, threshold);
     if (close_contacts.size()) {
         std::cout<<"Close Contact: "<<"\n";
         for(std::vector<sha1::close_contact>::iterator begin = close_contacts.begin();begin!=close_contacts.end();begin++) {

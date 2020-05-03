@@ -6,23 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/Users/husiyan/Documents/Forks/EphemeralID/keygen/sha1.cpp
-sstream
--
-iomanip
+/Users/husiyan/Documents/Forks/EphemeralID/keygen/keygen.h
+sha1.h
+/Users/husiyan/Documents/Forks/EphemeralID/keygen/sha1.h
+
+/Users/husiyan/Documents/Forks/EphemeralID/keygen/main.cpp
+iostream
 -
 vector
 -
-map
--
-cmath
--
-iostream
--
-random
--
-sha1.h
-/Users/husiyan/Documents/Forks/EphemeralID/keygen/sha1.h
+keygen.h
+/Users/husiyan/Documents/Forks/EphemeralID/keygen/keygen.h
 
 /Users/husiyan/Documents/Forks/EphemeralID/keygen/sha1.h
 string
